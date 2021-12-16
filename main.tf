@@ -17,12 +17,22 @@ locals {
 resource "azuread_application" "main" {
   display_name = lower(var.name)
   owners       = compact([data.azuread_client_config.main.object_id, var.owner_object_id])
+  lifecycle {
+    ignore_changes = [
+      owners
+    ]
+  }
 }
 
 resource "azuread_service_principal" "main" {
   application_id               = azuread_application.main.application_id
   app_role_assignment_required = true
   owners                       = compact([data.azuread_client_config.main.object_id, var.owner_object_id])
+  lifecycle {
+    ignore_changes = [
+      owners
+    ]
+  }
 }
 
 resource "time_rotating" "main" {
