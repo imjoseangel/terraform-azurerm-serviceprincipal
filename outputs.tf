@@ -18,19 +18,14 @@ output "object_id" {
   description = "The Object ID of the service principal."
 }
 
-output "tenant_id" {
-  value       = data.azurerm_client_config.main.tenant_id
-  description = "Echoes back the tenant (directory) ID, for convenience if passing the result of this module elsewhere as an object."
-}
-
 output "password" {
-  value       = azuread_service_principal_password.main[0].value
+  value       = azuread_service_principal_password.main.value
   sensitive   = true
   description = "The password for the service principal."
 }
 
 output "client_secret" {
-  value       = azuread_service_principal_password.main[0].value
+  value       = azuread_service_principal_password.main.value
   sensitive   = true
   description = "Echoes the `password` output value, for convenience if passing the result of this module elsewhere as an object."
 }
