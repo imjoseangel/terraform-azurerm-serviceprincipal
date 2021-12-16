@@ -18,8 +18,8 @@ output "object_id" {
   description = "The Object ID of the service principal."
 }
 
-output "client_secret" {
-  value       = azuread_service_principal_password.main.value
-  sensitive   = true
-  description = "Echoes the `password` output value, for convenience if passing the result of this module elsewhere as an object."
-}
+# output "client_secret" {
+#   value       = azuread_service_principal_password.main.value
+#   sensitive   = true
+#   description = "Echoes the `password` output value, for convenience if passing the result of this module elsewhere as an object."
+# }
