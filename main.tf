@@ -18,14 +18,14 @@ resource "random_uuid" "unique" {
 }
 
 resource "azuread_application" "main" {
-  display_name = format("sp-%s-%s", lower(replace(var.name, "/[[:^alnum:]]/", "")), random_uuid.unique.result)
-  identifier_uris = [
-    format("https://%s.onmicrosoft.com/%s", var.uri, random_uuid.unique.result)
-  ]
+  display_name = lower(var.name)
+  owners       = [data.azuread_client_config.main.object_id]
 }
 
 resource "azuread_service_principal" "main" {
-  application_id = azuread_application.main.application_id
+  application_id               = azuread_application.main.application_id
+  app_role_assignment_required = false
+  owners                       = [data.azuread_client_config.main.object_id]
 }
 
 resource "time_rotating" "main" {
