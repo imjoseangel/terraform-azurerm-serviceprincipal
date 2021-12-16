@@ -6,6 +6,11 @@ data "azuread_client_config" "main" {}
 
 data "azurerm_subscription" "main" {}
 
+data "azurerm_role_definition" "main" {
+  count = var.role != "" ? 1 : 0
+  name  = var.role
+}
+
 locals {
   scopes = length(var.scopes) > 0 ? var.scopes : [data.azurerm_subscription.main.id]
 }
