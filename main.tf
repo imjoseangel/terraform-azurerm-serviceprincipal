@@ -2,7 +2,7 @@
 # Data Source Declarations
 #-------------------------------
 
-data "azurerm_client_config" "main" {}
+data "azuread_client_config" "main" {}
 
 data "azurerm_role_definition" "main" {
   count = var.role != "" ? 1 : 0
