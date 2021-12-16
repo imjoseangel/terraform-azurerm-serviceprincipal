@@ -8,12 +8,6 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~> 2.13.0"
     }
-    time = {
-      source = "hashicorp/time"
-    }
-    random = {
-      source = "hashicorp/random"
-    }
   }
   required_version = ">= 1.0.0"
 }
