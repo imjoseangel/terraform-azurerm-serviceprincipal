@@ -4,7 +4,7 @@
 
 ## Deploys a service principal on Azure with role assignment
 
-This Terraform module deploys a serviceprincipal cluster on Azure
+This Terraform module deploys a serviceprincipal on Azure
 
 ### NOTES
 
