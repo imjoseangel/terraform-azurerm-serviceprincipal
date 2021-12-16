@@ -20,7 +20,7 @@ resource "random_uuid" "unique" {
 resource "azuread_application" "main" {
   display_name = format("sp-%s-%s", lower(replace(var.name, "/[[:^alnum:]]/", "")), random_uuid.unique.result)
   identifier_uris = [
-    format("https://youforce.onmicrosoft.com/%s", random_uuid.unique.result)
+    format("https://%s.onmicrosoft.com/%s", var.uri, random_uuid.unique.result)
   ]
 }
 
