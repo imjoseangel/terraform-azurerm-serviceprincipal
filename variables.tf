@@ -3,17 +3,6 @@ variable "name" {
   description = "The name of the service principal."
 }
 
-variable "uri" {
-  type        = string
-  description = "The URI of the service principal."
-}
-
-variable "password" {
-  type        = string
-  default     = ""
-  description = "A password for the service principal."
-}
-
 variable "end_date" {
   type        = string
   default     = null

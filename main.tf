@@ -33,7 +33,6 @@ resource "time_rotating" "main" {
 }
 
 resource "azuread_service_principal_password" "main" {
-  count                = var.password != null ? 1 : 0
   service_principal_id = azuread_service_principal.main.id
   rotate_when_changed = {
     rotation = time_rotating.main.id
