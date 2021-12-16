@@ -16,7 +16,6 @@ This Terraform module deploys a serviceprincipal on Azure
 module "serviceprincipal" {
   source                               = "github.com/imjoseangel/terraform-azurerm-serviceprincipal"
   name                                 = "myserviceprincipal"
-  resource_group_name                  = "rsg-serviceprincipal"
 }
 ```
 
