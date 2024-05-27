@@ -26,7 +26,7 @@ resource "azuread_application" "main" {
 }
 
 resource "azuread_service_principal" "main" {
-  application_id               = azuread_application.main.application_id
+  client_id                    = azuread_application.main.application_id
   app_role_assignment_required = true
   owners                       = compact([data.azuread_client_config.main.object_id, var.owner_object_id])
   lifecycle {
